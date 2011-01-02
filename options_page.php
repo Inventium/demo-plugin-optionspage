@@ -1,10 +1,10 @@
 <?php
 /**
  * Plugin Name: Demo Plugin Options Page
- * Plugin URI: 
- * Description: 
- * Author: 
- * Author URI: 
+ * Plugin URI: http://website-in-a-weekend/plugins/demo-options-page
+ * Description: This plugins exercises the settings API for handling options, which handles the machinery of the HTTP request "under the covers."
+ * Author: Dave Doolin
+ * Author URI: http://daviddoolin.com/
  */
  
   
