@@ -4,12 +4,12 @@
  * Plugin URI: http://website-in-a-weekend/plugins/demo-options-page
  * Description: This plugins exercises the settings API for handling options, which handles the machinery of the HTTP request "under the covers."
  * Author: Dave Doolin
- * Author URI: http://daviddoolin.com/
+ * Author URI: http://daviddoolin.com/ 
  */
  
   
 /** 
- * This code was basedon Dave Gwyers example code.  That code is 
+ * This code was based on Dave Gwyer's example code.  That code is 
  * excellent for experienced WP and PHP programmers. This code
  * is more suitable for beginners to WP.  More information can 
  * be found at these links:
