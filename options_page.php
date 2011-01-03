@@ -21,7 +21,7 @@
 
 // Register our settings. Add the settings section, and settings fields
 function demo_options_init(){
-	register_setting('plugin_options', 'plugin_options', 'plugin_options_validate' );
+	register_setting('plugin_options', 'plugin_options', 'demo_options_validate' );
 	add_settings_section('main_section', 'Main Settings', 'section_text_fn', __FILE__);
 	add_settings_field('plugin_text_string', 'Text Input', 'hello_text', __FILE__, 'main_section');
 }
@@ -43,6 +43,7 @@ function hello_text() {
 
 
 // Display the admin options page
+// function display_options_page() {
 function options_page_fn() {
 ?>
 	<div class="wrap">
@@ -61,7 +62,7 @@ function options_page_fn() {
 }
 
 // Validate user data for some/all of your input fields
-function plugin_options_validate($input) {
+function demo_options_validate($input) {
 	// Check our textbox option field contains no HTML tags - if so strip them out
 	$input['text_string'] =  wp_filter_nohtml_kses($input['text_string']);	
 	return $input; // return validated input
