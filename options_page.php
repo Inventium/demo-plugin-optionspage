@@ -20,9 +20,9 @@
 
 
 // Register our settings. Add the settings section, and settings fields
-function demo_options_init(){
+function demo_options_init() {
 	register_setting('plugin_options', 'plugin_options', 'demo_options_validate' );
-	add_settings_section('main_section', 'Main Settings', 'section_text_fn', __FILE__);
+	add_settings_section('main_section', 'Main Settings', 'main_section_text', __FILE__);
 	add_settings_field('plugin_text_string', 'Text Input', 'hello_text', __FILE__, 'main_section');
 }
 
@@ -30,10 +30,9 @@ function demo_options_page() {
   add_options_page('Demo Options Page Title', 'Demo Options Page', 'administrator', __FILE__, 'options_page_fn');
 }
 
-function  section_text_fn() {
+function  main_section_text() {
 	echo '<p>Below are some examples of different option controls.</p>';
 }
-
 
 
 function hello_text() {
