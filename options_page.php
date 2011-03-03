@@ -22,7 +22,8 @@
 // Register our settings. Add the settings section, and settings fields
 function demo_options_init() {
 	register_setting('plugin_options-group', 'plugin_options', 'demo_options_validate' );
-	add_settings_section('main_section', 'Main Settings', 'main_section_text', __FILE__);
+	//add_settings_section('main_section', 'Main Settings', 'main_section_text', __FILE__);
+  add_settings_section('main_section', '', 'main_section_text', __FILE__);
 	add_settings_field('plugin_hello_string', 'Hello Input', 'hello_text', __FILE__, 'main_section');
   add_settings_field('plugin_goodbye_string', 'Good Bye Input', 'goodbye_text', __FILE__, 'main_section');
 }
@@ -52,15 +53,34 @@ function options_page_fn() {
 ?>
 	<div class="wrap">
 		<div class="icon32" id="icon-options-general"><br></div>
-		<h2>My Example Options Page</h2>
-		Some optional text here explaining the overall purpose of the options and what they relate to etc.
-		<form action="options.php" method="post">
-		<?php settings_fields('plugin_options-group'); ?>
-		<?php do_settings_sections(__FILE__); ?>
-		<p class="submit">
-			<input name="Submit" type="submit" class="button-primary" value="<?php esc_attr_e('Save Changes'); ?>" />
-		</p>
-		</form>
+    
+
+      <h2>My Example Options Page</h2>
+		  Some optional text here explaining the overall purpose of the options and what they relate to etc.
+
+      <div class="postbox-container" style="width: 70%;">
+        <div class="meta-box-sortables ui-sortable">
+          
+          <div id="hrecipelabels" class="postbox ">
+                    <div class="handlediv" title="Click to toggle"><br/></div><!-- handlediv -->
+                    <h3 class="hndle"><span><?php _e('Recipe Labels', 'hrecipe'); ?></span></h3>
+                    <div class="inside">
+          
+          <?php // This block needs to go into a function itself. ?>
+		      <form action="options.php" method="post">
+		      <?php settings_fields('plugin_options-group'); ?>
+	        <?php do_settings_sections(__FILE__); ?>
+          <?php //do_settings('plugins_options-group'); ?>
+		      <p class="submit">
+			    <input name="Submit" type="submit" class="button-primary" value="<?php esc_attr_e('Save Changes'); ?>" />
+		      </p>
+		      </form>
+
+          </div><!-- inside -->
+         </div><!-- postbox -->
+        </div><!-- metabox-sortables -->
+     </div><!-- postbox-container --> 
+
 	</div>
 <?php
 }
