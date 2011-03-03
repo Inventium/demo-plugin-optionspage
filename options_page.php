@@ -21,9 +21,10 @@
 
 // Register our settings. Add the settings section, and settings fields
 function demo_options_init() {
-	register_setting('plugin_options', 'plugin_options', 'demo_options_validate' );
+	register_setting('plugin_options-group', 'plugin_options', 'demo_options_validate' );
 	add_settings_section('main_section', 'Main Settings', 'main_section_text', __FILE__);
-	add_settings_field('plugin_text_string', 'Text Input', 'hello_text', __FILE__, 'main_section');
+	add_settings_field('plugin_hello_string', 'Hello Input', 'hello_text', __FILE__, 'main_section');
+  add_settings_field('plugin_goodbye_string', 'Good Bye Input', 'goodbye_text', __FILE__, 'main_section');
 }
 
 function demo_options_page() {
@@ -37,9 +38,13 @@ function  main_section_text() {
 
 function hello_text() {
 	$options = get_option('plugin_options');
-	echo "<input id='plugin_text_string' name='plugin_options[text_string]' size='40' type='text' value='{$options['text_string']}' />";
+	echo "<input id='plugin_hello_string' name='plugin_options[hello_string]' size='40' type='text' value='{$options['hello_string']}' />";
 }
 
+function goodbye_text() {
+  $options = get_option('plugin_options');
+  echo "<input id='plugin_goodbye_string' name='plugin_options[goodbye_string]' size='40' type='text' value='{$options['goodbye_string']}' />";
+}
 
 // Display the admin options page
 // function display_options_page() {
@@ -50,7 +55,7 @@ function options_page_fn() {
 		<h2>My Example Options Page</h2>
 		Some optional text here explaining the overall purpose of the options and what they relate to etc.
 		<form action="options.php" method="post">
-		<?php settings_fields('plugin_options'); ?>
+		<?php settings_fields('plugin_options-group'); ?>
 		<?php do_settings_sections(__FILE__); ?>
 		<p class="submit">
 			<input name="Submit" type="submit" class="button-primary" value="<?php esc_attr_e('Save Changes'); ?>" />
