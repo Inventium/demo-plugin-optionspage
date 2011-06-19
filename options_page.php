@@ -4,7 +4,7 @@
  * Plugin URI: http://website-in-a-weekend/plugins/demo-options-page
  * Description: This plugins exercises the settings API for handling options, which handles the machinery of the HTTP request "under the covers."
  * Author: Dave Doolin
- * Author URI: http://daviddoolin.com/ 
+ * Author URI: http://dool.in/ 
  */
  
   
@@ -18,6 +18,13 @@
  * http://automattic.com/code/widgets/plugins/
  */
 
+/**
+ * TODO: 
+ * - Turn this code into a class which doesn't run until instantiated.
+ * - Use a self::text_input method for laying out options.
+ * - Clean up function names.
+ * - Add another settings group; more complicated but necessary.
+ */
 
 // Register our settings. Add the settings section, and settings fields
 function demo_options_init() {
