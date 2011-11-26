@@ -18,7 +18,7 @@
  * http://automattic.com/code/widgets/plugins/
  */
  
-$hrecipe_pagehook = null; 
+$demo_pagehook = null; 
  
 function demo_postbox($id, $title, $content) {
 ?>
@@ -87,7 +87,7 @@ function demo_options_init() {
 }
 
 function demo_options_page() {
-  $hrecipe_pagehook = add_options_page('Demo Options Page Title', 'Demo Options Page', 'administrator', __FILE__, 'options_page_fn');
+  $demo_pagehook = add_options_page('Demo Options Page Title', 'Demo Options Page', 'administrator', __FILE__, 'options_page_fn');
 }
 
 function  main_section_text() {
@@ -133,7 +133,7 @@ function options_page_fn() {
       // close postboxes that should be closed
       $('.if-js-closed').removeClass('if-js-closed').addClass('closed');
       // postboxes setup
-      postboxes.add_postbox_toggles('<?php global $hrecipe_pagehook; echo $hrecipe_pagehook; ?>');
+      postboxes.add_postbox_toggles('<?php global $demo_pagehook; echo $demo_pagehook; ?>');
     });
     //]]>
   </script>
